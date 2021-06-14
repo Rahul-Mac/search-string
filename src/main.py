@@ -49,15 +49,13 @@ class Window:
             if self.file is not None:
                 self.content = self.file.read()
                 if self.string in self.content:
-                    self.message()
+                    self.count = self.content.count(self.string)
+                    messagebox.showinfo("Message", "The word "+self.string+" appears "+str(self.count)+" time(s).")
                 else:
                     self.error()
             else:
                 self.error()
-
-
-    def message(self):
-        messagebox.showinfo("Message", " Success! String found.")
+        
   
     def error(self):
         messagebox.showerror("Message", "Failure! String not found.")
